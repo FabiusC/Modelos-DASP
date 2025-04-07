@@ -4,7 +4,6 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.filechooser.*;
-import com.sun.java.swing.plaf.windows.*;
 public class LoggerFrame extends JFrame {
 	  public static final String newline = "\n";
 	  public static final String LOG_MESSAGE = "LOG MESSAGE";

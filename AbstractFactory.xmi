@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.1" xmlns:xmi="http://www.omg.org/XMI" xmlns:uml="http://www.omg.org/spec/UML/20110701">
+  <uml:Model xmi:id="model_1" name="AutoSearchModel">
+    
+    <!-- Clase AutoSearchUI -->
+    <packagedElement xmi:type="uml:Class" xmi:id="class_AutoSearchUI" name="AutoSearchUI">
+      <generalization xmi:type="uml:Generalization" xmi:id="gen_AutoSearchUI_JFrame" general="class_JFrame"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="attr_newline" name="newline" visibility="public" isStatic="true" type="String"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="attr_SEARCH" name="SEARCH" visibility="public" isStatic="true" type="String"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="attr_EXIT" name="EXIT" visibility="public" isStatic="true" type="String"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="attr_LUXURY" name="LUXURY" visibility="public" isStatic="true" type="String"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="attr_NON_LUXURY" name="NON_LUXURY" visibility="public" isStatic="true" type="String"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="attr_cmbVehicleCategory" name="cmbVehicleCategory" visibility="private" type="JComboBox"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="attr_cmbVehicleType" name="cmbVehicleType" visibility="private" type="JComboBox"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="attr_lblVehicleCategory" name="lblVehicleCategory" visibility="private" type="JLabel"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="attr_lblVehicleType" name="lblVehicleType" visibility="private" type="JLabel"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="attr_lblCarName" name="lblCarName" visibility="private" type="JLabel"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="attr_lblCarNameValue" name="lblCarNameValue" visibility="private" type="JLabel"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="op_AutoSearchUI_constructor" name="AutoSearchUI"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="op_main" name="main">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="param_args" name="args" direction="in" type="String[]"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="op_getSelectedCategory" name="getSelectedCategory">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="ret_getSelectedCategory" direction="return" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="op_getSelectedType" name="getSelectedType">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="ret_getSelectedType" direction="return" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="op_setResult" name="setResult">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="param_searchResult" name="searchResult" direction="in" type="String"/>
+      </ownedOperation>
+    </packagedElement>
+    
+    <!-- Clase ButtonHandler -->
+    <packagedElement xmi:type="uml:Class" xmi:id="class_ButtonHandler" name="ButtonHandler">
+      <generalization xmi:type="uml:Generalization" xmi:id="gen_ButtonHandler_ActionListener" general="interface_ActionListener"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="attr_objAutoSearchUI" name="objAutoSearchUI" visibility="private" type="AutoSearchUI"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="op_ButtonHandler_default" name="ButtonHandler"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="op_ButtonHandler_param" name="ButtonHandler">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="param_inObjAutoSearchUI" name="inObjAutoSearchUI" direction="in" type="AutoSearchUI"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="op_actionPerformed" name="actionPerformed">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="param_e" name="e" direction="in" type="ActionEvent"/>
+      </ownedOperation>
+    </packagedElement>
+    
+    <!-- Clase abstracta VehicleFactory -->
+    <packagedElement xmi:type="uml:Class" xmi:id="class_VehicleFactory" name="VehicleFactory" isAbstract="true">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="attr_CAR" name="CAR" visibility="public" isStatic="true" type="String"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="attr_SUV" name="SUV" visibility="public" isStatic="true" type="String"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="op_getLuxury" name="getLuxury">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="ret_getLuxury" direction="return" type="Luxury"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="op_getNonLuxury" name="getNonLuxury">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="ret_getNonLuxury" direction="return" type="NonLuxury"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="op_getVehicleFactory" name="getVehicleFactory">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="param_type" name="type" direction="in" type="String"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="ret_getVehicleFactory" direction="return" type="VehicleFactory"/>
+      </ownedOperation>
+    </packagedElement>
+    
+    <!-- Clase CARVehicleFactory -->
+    <packagedElement xmi:type="uml:Class" xmi:id="class_CARVehicleFactory" name="CARVehicleFactory">
+      <generalization xmi:type="uml:Generalization" xmi:id="gen_CARVehicleFactory_VehicleFactory" general="class_VehicleFactory"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="op_getLuxury_CAR" name="getLuxury">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="ret_getLuxury_CAR" direction="return" type="LuxuryCAR"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="op_getNonLuxury_CAR" name="getNonLuxury">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="ret_getNonLuxury_CAR" direction="return" type="NonLuxuryCAR"/>
+      </ownedOperation>
+    </packagedElement>
+    
+    <!-- Clase SUVVehicleFactory -->
+    <packagedElement xmi:type="uml:Class" xmi:id="class_SUVVehicleFactory" name="SUVVehicleFactory">
+      <generalization xmi:type="uml:Generalization" xmi:id="gen_SUVVehicleFactory_VehicleFactory" general="class_VehicleFactory"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="op_getLuxury_SUV" name="getLuxury">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="ret_getLuxury_SUV" direction="return" type="LuxurySUV"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="op_getNonLuxury_SUV" name="getNonLuxury">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="ret_getNonLuxury_SUV" direction="return" type="NonLuxurySUV"/>
+      </ownedOperation>
+    </packagedElement>
+    
+    <!-- Interfaz Luxury -->
+    <packagedElement xmi:type="uml:Interface" xmi:id="interface_Luxury" name="Luxury">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="op_getLuxuryName" name="getLuxuryName">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="ret_getLuxuryName" direction="return" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="op_getLuxuryFeatures" name="getLuxuryFeatures">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="ret_getLuxuryFeatures" direction="return" type="String"/>
+      </ownedOperation>
+    </packagedElement>
+    
+    <!-- Clase LuxuryCAR -->
+    <packagedElement xmi:type="uml:Class" xmi:id="class_LuxuryCAR" name="LuxuryCAR">
+      <generalization xmi:type="uml:Generalization" xmi:id="gen_LuxuryCAR_Luxury" general="interface_Luxury"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="attr_LuxuryCAR_name" name="name" visibility="private" type="String"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="op_LuxuryCAR_constructor" name="LuxuryCAR">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="param_cName" name="cName" direction="in" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="op_getLuxuryName_LuxuryCAR" name="getLuxuryName">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="ret_getLuxuryName_LuxuryCAR" direction="return" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="op_getLuxuryFeatures_LuxuryCAR" name="getLuxuryFeatures">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="ret_getLuxuryFeatures_LuxuryCAR" direction="return" type="String"/>
+      </ownedOperation>
+    </packagedElement>
+    
+    <!-- Clase LuxurySUV -->
+    <packagedElement xmi:type="uml:Class" xmi:id="class_LuxurySUV" name="LuxurySUV">
+      <generalization xmi:type="uml:Generalization" xmi:id="gen_LuxurySUV_Luxury" general="interface_Luxury"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="attr_LuxurySUV_name" name="name" visibility="private" type="String"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="op_LuxurySUV_constructor" name="LuxurySUV">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="param_sName" name="sName" direction="in" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="op_getLuxuryName_LuxurySUV" name="getLuxuryName">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="ret_getLuxuryName_LuxurySUV" direction="return" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="op_getLuxuryFeatures_LuxurySUV" name="getLuxuryFeatures">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="ret_getLuxuryFeatures_LuxurySUV" direction="return" type="String"/>
+      </ownedOperation>
+    </packagedElement>
+    
+    <!-- Interfaz NonLuxury -->
+    <packagedElement xmi:type="uml:Interface" xmi:id="interface_NonLuxury" name="NonLuxury">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="op_getNLName" name="getNLName">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="ret_getNLName" direction="return" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="op_getNLFeatures" name="getNLFeatures">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="ret_getNLFeatures" direction="return" type="String"/>
+      </ownedOperation>
+    </packagedElement>
+    
+    <!-- Clase NonLuxuryCAR -->
+    <packagedElement xmi:type="uml:Class" xmi:id="class_NonLuxuryCAR" name="NonLuxuryCAR">
+      <generalization xmi:type="uml:Generalization" xmi:id="gen_NonLuxuryCAR_NonLuxury" general="interface_NonLuxury"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="attr_NonLuxuryCAR_name" name="name" visibility="private" type="String"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="op_NonLuxuryCAR_constructor" name="NonLuxuryCAR">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="param_sName_NonLuxuryCAR" name="sName" direction="in" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="op_getNLName_NonLuxuryCAR" name="getNLName">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="ret_getNLName_NonLuxuryCAR" direction="return" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="op_getNLFeatures_NonLuxuryCAR" name="getNLFeatures">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="ret_getNLFeatures_NonLuxuryCAR" direction="return" type="String"/>
+      </ownedOperation>
+    </packagedElement>
+    
+    <!-- Clase NonLuxurySUV -->
+    <packagedElement xmi:type="uml:Class" xmi:id="class_NonLuxurySUV" name="NonLuxurySUV">
+      <generalization xmi:type="uml:Generalization" xmi:id="gen_NonLuxurySUV_NonLuxury" general="interface_NonLuxury"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="attr_NonLuxurySUV_name" name="name" visibility="private" type="String"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="op_NonLuxurySUV_constructor" name="NonLuxurySUV">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="param_sName_NonLuxurySUV" name="sName" direction="in" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="op_getNLName_NonLuxurySUV" name="getNLName">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="ret_getNLName_NonLuxurySUV" direction="return" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="op_getNLFeatures_NonLuxurySUV" name="getNLFeatures">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="ret_getNLFeatures_NonLuxurySUV" direction="return" type="String"/>
+      </ownedOperation>
+    </packagedElement>
+    
+    <!-- Interfaz ActionListener -->
+    <packagedElement xmi:type="uml:Interface" xmi:id="interface_ActionListener" name="ActionListener">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="op_actionPerformed_Interface" name="actionPerformed">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="param_e_Interface" name="e" direction="in" type="ActionEvent"/>
+      </ownedOperation>
+    </packagedElement>
+    
+  </uml:Model>
+</xmi:XMI>

@@ -1,3 +1,5 @@
+// ConsoleLogger.java
+
 public class ConsoleLogger implements Logger {
 
 	private static ConsoleLogger logger;
