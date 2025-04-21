@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.1" xmlns:xmi="http://www.omg.org/XMI" xmlns:uml="http://www.omg.org/spec/UML/20110701">
+  <uml:Model xmi:id="model_1" name="DeepCopyModel">
+    
+    <!-- Clase Person -->
+    <packagedElement xmi:type="uml:Class" xmi:id="class_Person" name="Person">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="attr_name" name="name" visibility="private" type="String"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="attr_car" name="car" visibility="private" type="Car"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="op_getCar" name="getCar">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="param_getCar" name="Car" direction="return" type="Car"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="op_getName" name="getName">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="param_getName" name="String" direction="return" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="op_setName" name="setName">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="param_setName" name="s" direction="in" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="op_clone" name="clone">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="param_clone" name="Person" direction="return" type="Person"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="op_PersonConstructor" name="Person">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="param_s" name="s" direction="in" type="String"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="param_t" name="t" direction="in" type="String"/>
+      </ownedOperation>
+    </packagedElement>
+    
+    <!-- Clase Car -->
+    <packagedElement xmi:type="uml:Class" xmi:id="class_Car" name="Car">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="attr_carName" name="name" visibility="private" type="String"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="op_getCarName" name="getName">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="param_getCarName" name="String" direction="return" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="op_setCarName" name="setName">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="param_setCarName" name="s" direction="in" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="op_CarConstructor" name="Car">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="param_s" name="s" direction="in" type="String"/>
+      </ownedOperation>
+    </packagedElement>
+    
+    <!-- Relación entre Person y Car (Composición) -->
+    <packagedElement xmi:type="uml:Association" xmi:id="assoc_PersonCar" memberEnd="attr_car, attr_name">
+      <ownedEnd xmi:type="uml:Property" xmi:id="end_Person_car" name="car" association="assoc_PersonCar" type="Car"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="end_Car_person" name="person" association="assoc_PersonCar" type="Person"/>
+    </packagedElement>
+
+  </uml:Model>
+</xmi:XMI>
