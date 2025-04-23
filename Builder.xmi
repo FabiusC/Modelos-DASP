@@ -1,0 +1,178 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.1"
+         xmlns:xmi="http://www.omg.org/XMI"
+         xmlns:uml="http://www.omg.org/spec/UML/20090901">
+  <!-- ==========  ROOT MODEL  ========== -->
+  <uml:Model xmi:id="model_1" name="BuilderExample">
+
+    <!-- ===== PRIMITIVE / EXTERN DATA TYPES ===== -->
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="dt_String" name="String"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="dt_void"   name="void"/>
+    <packagedElement xmi:type="uml:DataType"      xmi:id="dt_Frame"  name="Frame"/>
+    <packagedElement xmi:type="uml:DataType"      xmi:id="dt_Entry"  name="Entry"/>
+    <packagedElement xmi:type="uml:DataType"      xmi:id="dt_Label"  name="Label"/>
+    <packagedElement xmi:type="uml:DataType"      xmi:id="dt_Text"   name="Text"/>
+    <packagedElement xmi:type="uml:DataType"      xmi:id="dt_Button" name="Button"/>
+    <packagedElement xmi:type="uml:DataType"      xmi:id="dt_Combo"  name="Combobox"/>
+    <packagedElement xmi:type="uml:DataType"      xmi:id="dt_Tk"     name="Tk"/>
+    <packagedElement xmi:type="uml:DataType"      xmi:id="dt_Event"  name="Event"/>
+    <packagedElement xmi:type="uml:DataType"      xmi:id="dt_Toplevel" name="Toplevel"/>
+
+    <!-- ========== CLASES ========== -->
+
+    <!-- UIBuilder (abstracta) -->
+    <packagedElement xmi:type="uml:Class" xmi:id="cls_UIBuilder" name="UIBuilder" isAbstract="true">
+      <ownedAttribute xmi:id="attr_UIB_searchUI" name="_searchUI" visibility="private" type="dt_Frame"/>
+      <ownedOperation xmi:id="op_UIB_init" name="__init__">
+        <ownedParameter xmi:id="par_UIB_init_frame" name="frame" type="dt_Frame" direction="in"/>
+        <ownedParameter xmi:id="ret_UIB_init" name="return" type="dt_void" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="op_UIB_add" name="addUIControls">
+        <ownedParameter xmi:id="ret_UIB_add" name="return" type="dt_void" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="op_UIB_init2" name="initialize">
+        <ownedParameter xmi:id="ret_UIB_init2" name="return" type="dt_void" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="op_UIB_getSQL" name="getSQL">
+        <ownedParameter xmi:id="ret_UIB_getSQL" name="return" type="dt_String" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="op_UIB_getUI" name="getSearchUI">
+        <ownedParameter xmi:id="ret_UIB_getUI" name="return" type="dt_Frame" direction="return"/>
+      </ownedOperation>
+    </packagedElement>
+
+    <!-- CandSrchBuilder -->
+    <packagedElement xmi:type="uml:Class" xmi:id="cls_Cand" name="CandSrchBuilder">
+      <generalization xmi:id="gen_Cand_UIB" general="cls_UIBuilder"/>
+      <ownedAttribute xmi:id="attr_Cand_user"  name="__txtUserName"  visibility="private" type="dt_Entry"/>
+      <ownedAttribute xmi:id="attr_Cand_skill" name="__txtSkill"     visibility="private" type="dt_Entry"/>
+      <ownedAttribute xmi:id="attr_Cand_exp"   name="__cmbExperience" visibility="private" type="dt_Combo"/>
+      <ownedOperation xmi:id="op_Cand_init" name="__init__">
+        <ownedParameter xmi:id="par_Cand_init_frame" name="frame" type="dt_Frame" direction="in"/>
+        <ownedParameter xmi:id="ret_Cand_init" name="return" type="dt_void" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="op_Cand_add" name="addUIControls">
+        <ownedParameter xmi:id="ret_Cand_add" name="return" type="dt_void" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="op_Cand_initialize" name="initialize">
+        <ownedParameter xmi:id="ret_Cand_initialize" name="return" type="dt_void" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="op_Cand_getSQL" name="getSQL">
+        <ownedParameter xmi:id="ret_Cand_getSQL" name="return" type="dt_String" direction="return"/>
+      </ownedOperation>
+    </packagedElement>
+
+    <!-- EmpSrchBuilder -->
+    <packagedElement xmi:type="uml:Class" xmi:id="cls_Emp" name="EmpSrchBuilder">
+      <generalization xmi:id="gen_Emp_UIB" general="cls_UIBuilder"/>
+      <ownedAttribute xmi:id="attr_Emp_user"   name="__txtUserName"  visibility="private" type="dt_Entry"/>
+      <ownedAttribute xmi:id="attr_Emp_city"   name="__txtCity"      visibility="private" type="dt_Entry"/>
+      <ownedAttribute xmi:id="attr_Emp_ren"    name="__txtRenewal"   visibility="private" type="dt_Entry"/>
+      <ownedAttribute xmi:id="attr_Emp_lblU"   name="__lblUserName"  visibility="private" type="dt_Label"/>
+      <ownedAttribute xmi:id="attr_Emp_lblC"   name="__lblCity"      visibility="private" type="dt_Label"/>
+      <ownedAttribute xmi:id="attr_Emp_lblR"   name="__lblRenewal"   visibility="private" type="dt_Label"/>
+      <ownedOperation xmi:id="op_Emp_init" name="__init__">
+        <ownedParameter xmi:id="par_Emp_init_frame" name="frame" type="dt_Frame" direction="in"/>
+        <ownedParameter xmi:id="ret_Emp_init" name="return" type="dt_void" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="op_Emp_add" name="addUIControls">
+        <ownedParameter xmi:id="ret_Emp_add" name="return" type="dt_void" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="op_Emp_initialize" name="initialize">
+        <ownedParameter xmi:id="ret_Emp_initialize" name="return" type="dt_void" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="op_Emp_getSQL" name="getSQL">
+        <ownedParameter xmi:id="ret_Emp_getSQL" name="return" type="dt_String" direction="return"/>
+      </ownedOperation>
+    </packagedElement>
+
+    <!-- BuilderFactory -->
+    <packagedElement xmi:type="uml:Class" xmi:id="cls_BFactory" name="BuilderFactory">
+      <ownedOperation xmi:id="op_BF_get" name="getUIBuilder">
+        <ownedParameter xmi:id="par_BF_typeL" name="typeL" type="dt_String" direction="in"/>
+        <ownedParameter xmi:id="par_BF_frame" name="frame" type="dt_Frame" direction="in"/>
+        <ownedParameter xmi:id="ret_BF_get" name="return" type="cls_UIBuilder" direction="return"/>
+      </ownedOperation>
+    </packagedElement>
+
+    <!-- SQLBuilderUI (subclase de Toplevel) -->
+    <packagedElement xmi:type="uml:Class" xmi:id="cls_SQLUI" name="SQLBuilderUI">
+      <generalization xmi:id="gen_SQL_Top" general="dt_Toplevel"/>
+      <!-- constantes de clase -->
+      <ownedAttribute xmi:id="attr_SQL_CAND"  name="CANDIDATE"   isStatic="true" type="dt_String"/>
+      <ownedAttribute xmi:id="attr_SQL_EMP"   name="EMPLOYER"    isStatic="true" type="dt_String"/>
+      <ownedAttribute xmi:id="attr_SQL_EXIT"  name="EXIT"        isStatic="true" type="dt_String"/>
+      <ownedAttribute xmi:id="attr_SQL_GET"   name="GET_SQL"     isStatic="true" type="dt_String"/>
+      <ownedAttribute xmi:id="attr_SQL_BLK"   name="BLANK"       isStatic="true" type="dt_String"/>
+      <!-- atributos de instancia -->
+      <ownedAttribute xmi:id="attr_SQL_cmb"    name="__cmbSearchType"   visibility="private" type="dt_Combo"/>
+      <ownedAttribute xmi:id="attr_SQL_txt"    name="__txtSQL"          visibility="private" type="dt_Text"/>
+      <ownedAttribute xmi:id="attr_SQL_pan"    name="__pSearchCriteria" visibility="private" type="dt_Frame"/>
+      <ownedAttribute xmi:id="attr_SQL_lblST"  name="__lblSearchType"   visibility="private" type="dt_Label"/>
+      <ownedAttribute xmi:id="attr_SQL_lblWC"  name="__lblWhereClause"  visibility="private" type="dt_Label"/>
+      <ownedAttribute xmi:id="attr_SQL_lblSC"  name="__lblSearchCriteria" visibility="private" type="dt_Label"/>
+      <ownedAttribute xmi:id="attr_SQL_btnGet" name="__btnGetWhereClause" visibility="private" type="dt_Button"/>
+      <ownedAttribute xmi:id="attr_SQL_btnEx"  name="__btnExit"          visibility="private" type="dt_Button"/>
+
+      <ownedOperation xmi:id="op_SQL_init" name="__init__">
+        <ownedParameter xmi:id="par_SQL_init_master" name="master" type="dt_Tk" direction="in"/>
+        <ownedParameter xmi:id="ret_SQL_init" name="return" type="dt_void" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="op_SQL_disp" name="displayNewUI">
+        <ownedParameter xmi:id="par_SQL_disp_panel" name="panel" type="dt_Frame" direction="in"/>
+        <ownedParameter xmi:id="ret_SQL_disp" name="return" type="dt_void" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="op_SQL_set" name="setSQL">
+        <ownedParameter xmi:id="par_SQL_set_str" name="str" type="dt_String" direction="in"/>
+        <ownedParameter xmi:id="ret_SQL_set" name="return" type="dt_void" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="op_SQL_getBtnGet" name="getBtnGetWhereClause">
+        <ownedParameter xmi:id="ret_SQL_getBtnGet" name="return" type="dt_Button" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="op_SQL_getBtnEx" name="getBtnExit">
+        <ownedParameter xmi:id="ret_SQL_getBtnEx" name="return" type="dt_Button" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="op_SQL_getCmb" name="getCmbSearchType">
+        <ownedParameter xmi:id="ret_SQL_getCmb" name="return" type="dt_Combo" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="op_SQL_getType" name="getSearchType">
+        <ownedParameter xmi:id="ret_SQL_getType" name="return" type="dt_String" direction="return"/>
+      </ownedOperation>
+    </packagedElement>
+
+    <!-- ButtonHandler -->
+    <packagedElement xmi:type="uml:Class" xmi:id="cls_BH" name="ButtonHandler">
+      <ownedAttribute xmi:id="attr_BH_root"    name="__root"    visibility="private" type="dt_Tk"/>
+      <ownedAttribute xmi:id="attr_BH_frame"   name="__frame"   visibility="private" type="cls_SQLUI"/>
+      <ownedAttribute xmi:id="attr_BH_builder" name="__builder" visibility="private" type="cls_UIBuilder"/>
+
+      <ownedOperation xmi:id="op_BH_init" name="__init__">
+        <ownedParameter xmi:id="par_BH_init_root" name="root" type="dt_Tk" direction="in"/>
+        <ownedParameter xmi:id="ret_BH_init" name="return" type="dt_void" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="op_BH_evtGet" name="eventBtnGetWhereClause">
+        <ownedParameter xmi:id="ret_BH_evtGet" name="return" type="dt_void" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="op_BH_evtCmb" name="eventCmbSearchType">
+        <ownedParameter xmi:id="par_BH_evtCmb_event" name="event" type="dt_Event" direction="in"/>
+        <ownedParameter xmi:id="ret_BH_evtCmb" name="return" type="dt_void" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="op_BH_evtExit" name="eventBtnExit">
+        <ownedParameter xmi:id="ret_BH_evtExit" name="return" type="dt_void" direction="return"/>
+      </ownedOperation>
+    </packagedElement>
+
+    <!-- UIDirector -->
+    <packagedElement xmi:type="uml:Class" xmi:id="cls_UIDir" name="UIDirector">
+      <ownedAttribute xmi:id="attr_UIDir_builder" name="__builder" visibility="private" type="cls_UIBuilder"/>
+      <ownedOperation xmi:id="op_UIDir_init" name="__init__">
+        <ownedParameter xmi:id="par_UIDir_bldr" name="bldr" type="cls_UIBuilder" direction="in"/>
+        <ownedParameter xmi:id="ret_UIDir_init" name="return" type="dt_void" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="op_UIDir_build" name="build">
+        <ownedParameter xmi:id="ret_UIDir_build" name="return" type="dt_void" direction="return"/>
+      </ownedOperation>
+    </packagedElement>
+
+  </uml:Model>
+</xmi:XMI>

@@ -64,8 +64,6 @@ class SQLBuilderUI(Toplevel):
 
     def getSearchType(self):
         return self.__cmbSearchType.get()
-
-
 # End of class
 
 class ButtonHandler():
@@ -99,8 +97,6 @@ class ButtonHandler():
     def eventBtnExit(self):
         self.__frame.destroy()
         self.__root.destroy()
-
-
 # End of class
 
 def main():
