@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XMI xmi.version="2.1" xmlns:uml="http://www.omg.org/spec/UML/20090901" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1">
+  <uml:Model xmi:id="model_1" name="FlyweightPatternModel">
+    <!-- Interface: FlyweightIntr -->
+    <packagedElement xmi:type="uml:Interface" xmi:id="interface_FlyweightIntr" name="FlyweightIntr">
+      <ownedOperation xmi:id="op_getNameFac" name="getNameFac">
+        <ownedParameter xmi:id="param_return_getNameFac" name="return" direction="return" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="op_getLocality" name="getLocality">
+        <ownedParameter xmi:id="param_return_getLocality" name="return" direction="return" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="op_getAddress" name="getAddress">
+        <ownedParameter xmi:id="param_return_getAddress" name="return" direction="return" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="op_getNeighbourhood" name="getNeighbourhood">
+        <ownedParameter xmi:id="param_return_getNeighbourhood" name="return" direction="return" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="op_getCoordinates" name="getCoordinates">
+        <ownedParameter xmi:id="param_return_getCoordinates" name="return" direction="return" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="op_print" name="print">
+        <ownedParameter xmi:id="param_name" name="name" direction="in" type="String"/>
+        <ownedParameter xmi:id="param_code" name="code" direction="in" type="String"/>
+        <ownedParameter xmi:id="param_return_print" name="return" direction="return" type="void"/>
+      </ownedOperation>
+    </packagedElement>
+
+    <!-- Class: Flyweight -->
+    <packagedElement xmi:type="uml:Class" xmi:id="class_Flyweight" name="Flyweight">
+      <!-- Implements FlyweightIntr -->
+      <interfaceRealization xmi:id="realize_FlyweightIntr" supplier="interface_FlyweightIntr"/>
+      <!-- Attributes -->
+      <ownedAttribute xmi:id="attr_nameFac" name="nameFac" visibility="private" type="String"/>
+      <ownedAttribute xmi:id="attr_locality" name="locality" visibility="private" type="String"/>
+      <ownedAttribute xmi:id="attr_address" name="address" visibility="private" type="String"/>
+      <ownedAttribute xmi:id="attr_neighbourhood" name="neighbourhood" visibility="private" type="String"/>
+      <ownedAttribute xmi:id="attr_coordinates" name="coordinates" visibility="private" type="String"/>
+      <!-- Constructor -->
+      <ownedOperation xmi:id="ctor_Flyweight" name="Flyweight" isStatic="false" visibility="public">
+        <ownedParameter xmi:id="param_faculty_ctor" name="faculty" direction="in" type="String"/>
+      </ownedOperation>
+      <!-- Operations -->
+      <ownedOperation xmi:id="op_setValues" name="setValues" visibility="private">
+        <ownedParameter xmi:id="param_nm" name="nm" direction="in" type="String"/>
+        <ownedParameter xmi:id="param_loc" name="loc" direction="in" type="String"/>
+        <ownedParameter xmi:id="param_addr" name="addr" direction="in" type="String"/>
+        <ownedParameter xmi:id="param_ngb" name="ngb" direction="in" type="String"/>
+        <ownedParameter xmi:id="param_coord" name="coord" direction="in" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="op_getNameFac" name="getNameFac" visibility="public">
+        <ownedParameter xmi:id="param_return_gNF" name="return" direction="return" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="op_getLocality_Fw" name="getLocality" visibility="public">
+        <ownedParameter xmi:id="param_return_gL" name="return" direction="return" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="op_getAddress_Fw" name="getAddress" visibility="public">
+        <ownedParameter xmi:id="param_return_gA" name="return" direction="return" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="op_getNeighbourhood_Fw" name="getNeighbourhood" visibility="public">
+        <ownedParameter xmi:id="param_return_gN" name="return" direction="return" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="op_getCoordinates_Fw" name="getCoordinates" visibility="public">
+        <ownedParameter xmi:id="param_return_gC" name="return" direction="return" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="op_print_Fw" name="print" visibility="public">
+        <ownedParameter xmi:id="param_name_print" name="name" direction="in" type="String"/>
+        <ownedParameter xmi:id="param_code_print" name="code" direction="in" type="String"/>
+        <ownedParameter xmi:id="param_return_printFw" name="return" direction="return" type="void"/>
+      </ownedOperation>
+    </packagedElement>
+
+    <!-- Class: FlyweightFactory -->
+    <packagedElement xmi:type="uml:Class" xmi:id="class_FlyweightFactory" name="FlyweightFactory">
+      <!-- Singleton attributes -->
+      <ownedAttribute xmi:id="attr_lstFlyweight" name="lstFlyweight" visibility="private" type="HashMap&lt;String,FlyweightIntr&gt;"/>
+      <ownedAttribute xmi:id="attr_factory" name="factory" visibility="private" isStatic="true" type="FlyweightFactory"/>
+      <!-- Operations -->
+      <ownedOperation xmi:id="op_getFlyweight_Fac" name="getFlyweight" visibility="public">
+        <ownedParameter xmi:id="param_faculty_getFw" name="faculty" direction="in" type="String"/>
+        <ownedParameter xmi:id="param_return_getFw" name="return" direction="return" type="FlyweightIntr"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="op_getInstance_Fac" name="getInstance" visibility="public" isStatic="true">
+        <ownedParameter xmi:id="param_return_getInst" name="return" direction="return" type="FlyweightFactory"/>
+      </ownedOperation>
+    </packagedElement>
+
+    <!-- Class: FlyweightTest -->
+    <packagedElement xmi:type="uml:Class" xmi:id="class_FlyweightTest" name="FlyweightTest">
+      <ownedOperation xmi:id="op_main_Test" name="main" visibility="public" isStatic="true">
+        <ownedParameter xmi:id="param_args_main" name="args" direction="in" type="String[]"/>
+      </ownedOperation>
+    </packagedElement>
+
+    <!-- Association: FlyweightFactory holds FlyweightIntr instances -->
+    <packagedElement xmi:type="uml:Association" xmi:id="assoc_factory_flyweight" name="factoryToFlyweight">
+      <ownedEnd xmi:id="end_factory" name="lstFlyweight" visibility="private" aggregation="composite" type="class_FlyweightFactory"/>
+      <ownedEnd xmi:id="end_flyweight" name="flyweight" visibility="private" type="interface_FlyweightIntr"/>
+    </packagedElement>
+
+    <!-- Dependency: FlyweightTest uses FlyweightFactory -->
+    <packagedElement xmi:type="uml:Dependency" xmi:id="dep_test_factory" name="usesFactory">
+      <client xmi:idref="class_FlyweightTest"/>
+      <supplier xmi:idref="class_FlyweightFactory"/>
+    </packagedElement>
+
+  </uml:Model>
+</XMI>

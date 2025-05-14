@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XMI xmi.version="2.1" xmlns:xmi="http://www.omg.org/XMI" xmlns:uml="http://www.omg.org/spec/UML/20090901">
+    <!-- Definición del modelo UML -->
+    <uml:Model name="PaintApplicationModel" xmi:type="uml:Model" xmlns:uml="http://www.omg.org/spec/UML/20090901">
+    
+        <!-- Clase Capa -->
+        <uml:Class name="Capa" xmi:type="uml:Class">
+            <uml:ownedAttribute name="id" visibility="private" type="uml:Integer"/>
+            <uml:ownedAttribute name="figuras" visibility="private" type="uml:List"/>
+            <uml:ownedOperation name="agregarFigura" visibility="public">
+                <uml:ownedParameter name="figura" type="Figura"/>
+            </uml:ownedOperation>
+            <uml:ownedOperation name="eliminarFigura" visibility="public">
+                <uml:ownedParameter name="figura" type="Figura"/>
+            </uml:ownedOperation>
+            <uml:ownedOperation name="moverFigura" visibility="public">
+                <uml:ownedParameter name="figura" type="Figura"/>
+                <uml:ownedParameter name="nuevaPosicionX" type="uml:Integer"/>
+                <uml:ownedParameter name="nuevaPosicionY" type="uml:Integer"/>
+            </uml:ownedOperation>
+            <uml:ownedOperation name="cambiarOrden" visibility="public">
+                <uml:ownedParameter name="nuevaPosicion" type="uml:Integer"/>
+            </uml:ownedOperation>
+        </uml:Class>
+        
+        <!-- Clase Figura (Clase abstracta) -->
+        <uml:Class name="Figura" xmi:type="uml:Class" isAbstract="true">
+            <uml:ownedAttribute name="coordenadaInicialX" visibility="private" type="uml:Integer"/>
+            <uml:ownedAttribute name="coordenadaInicialY" visibility="private" type="uml:Integer"/>
+            <uml:ownedAttribute name="coordenadaFinalX" visibility="private" type="uml:Integer"/>
+            <uml:ownedAttribute name="coordenadaFinalY" visibility="private" type="uml:Integer"/>
+            <uml:ownedAttribute name="colorBorde" visibility="private" type="uml:String"/>
+            <uml:ownedAttribute name="colorRelleno" visibility="private" type="uml:String"/>
+            <uml:ownedOperation name="dibujar" visibility="public" isAbstract="true"/>
+            <uml:ownedOperation name="calcularArea" visibility="public" isAbstract="true" type="uml:Double"/>
+            <uml:ownedOperation name="moverFigura" visibility="public">
+                <uml:ownedParameter name="nuevaPosicionX" type="uml:Integer"/>
+                <uml:ownedParameter name="nuevaPosicionY" type="uml:Integer"/>
+            </uml:ownedOperation>
+        </uml:Class>
+        
+        <!-- Subclase Círculo -->
+        <uml:Class name="Círculo" xmi:type="uml:Class">
+            <uml:generalization general="Figura"/>
+            <uml:ownedAttribute name="radio" visibility="private" type="uml:Double"/>
+            <uml:ownedOperation name="dibujar" visibility="public"/>
+            <uml:ownedOperation name="calcularArea" visibility="public" type="uml:Double"/>
+        </uml:Class>
+        
+        <!-- Subclase Cuadrado -->
+        <uml:Class name="Cuadrado" xmi:type="uml:Class">
+            <uml:generalization general="Figura"/>
+            <uml:ownedAttribute name="lado" visibility="private" type="uml:Double"/>
+            <uml:ownedOperation name="dibujar" visibility="public"/>
+            <uml:ownedOperation name="calcularArea" visibility="public" type="uml:Double"/>
+        </uml:Class>
+        
+        <!-- Subclase Triángulo -->
+        <uml:Class name="Triángulo" xmi:type="uml:Class">
+            <uml:generalization general="Figura"/>
+            <uml:ownedAttribute name="base" visibility="private" type="uml:Double"/>
+            <uml:ownedAttribute name="altura" visibility="private" type="uml:Double"/>
+            <uml:ownedOperation name="dibujar" visibility="public"/>
+            <uml:ownedOperation name="calcularArea" visibility="public" type="uml:Double"/>
+        </uml:Class>
+        
+        <!-- Clase HerramientaDibujo -->
+        <uml:Class name="HerramientaDibujo" xmi:type="uml:Class">
+            <uml:ownedAttribute name="estado" visibility="private" type="uml:String"/>
+            <uml:ownedAttribute name="capas" visibility="private" type="uml:List"/>
+            <uml:ownedOperation name="iniciarDibujo" visibility="public">
+                <uml:ownedParameter name="coordenadaInicialX" type="uml:Integer"/>
+                <uml:ownedParameter name="coordenadaInicialY" type="uml:Integer"/>
+            </uml:ownedOperation>
+            <uml:ownedOperation name="terminarDibujo" visibility="public">
+                <uml:ownedParameter name="coordenadaFinalX" type="uml:Integer"/>
+                <uml:ownedParameter name="coordenadaFinalY" type="uml:Integer"/>
+            </uml:ownedOperation>
+            <uml:ownedOperation name="cambiarHerramienta" visibility="public">
+                <uml:ownedParameter name="estado" type="uml:String"/>
+            </uml:ownedOperation>
+            <uml:ownedOperation name="deshacer" visibility="public"/>
+            <uml:ownedOperation name="rehacer" visibility="public"/>
+        </uml:Class>
+        
+        <!-- Clase FabricaDeFiguras -->
+        <uml:Class name="FabricaDeFiguras" xmi:type="uml:Class">
+            <uml:ownedOperation name="crearFigura" visibility="public">
+                <uml:ownedParameter name="tipo" type="uml:String"/>
+                <uml:ownedParameter name="coordenadaInicialX" type="uml:Integer"/>
+                <uml:ownedParameter name="coordenadaInicialY" type="uml:Integer"/>
+                <uml:ownedParameter name="coordenadaFinalX" type="uml:Integer"/>
+                <uml:ownedParameter name="coordenadaFinalY" type="uml:Integer"/>
+                <uml:ownedParameter name="colorBorde" type="uml:String"/>
+                <uml:ownedParameter name="colorRelleno" type="uml:String"/>
+                <uml:ownedReturn type="Figura"/>
+            </uml:ownedOperation>
+            <uml:ownedOperation name="crearCírculo" visibility="public">
+                <uml:ownedParameter name="coordenadaInicialX" type="uml:Integer"/>
+                <uml:ownedParameter name="coordenadaInicialY" type="uml:Integer"/>
+                <uml:ownedParameter name="coordenadaFinalX" type="uml:Integer"/>
+                <uml:ownedParameter name="coordenadaFinalY" type="uml:Integer"/>
+                <uml:ownedParameter name="colorBorde" type="uml:String"/>
+                <uml:ownedParameter name="colorRelleno" type="uml:String"/>
+                <uml:ownedReturn type="Círculo"/>
+            </uml:ownedOperation>
+            <uml:ownedOperation name="crearCuadrado" visibility="public">
+                <uml:ownedParameter name="coordenadaInicialX" type="uml:Integer"/>
+                <uml:ownedParameter name="coordenadaInicialY" type="uml:Integer"/>
+                <uml:ownedParameter name="coordenadaFinalX" type="uml:Integer"/>
+                <uml:ownedParameter name="coordenadaFinalY" type="uml:Integer"/>
+                <uml:ownedParameter name="colorBorde" type="uml:String"/>
+                <uml:ownedParameter name="colorRelleno" type="uml:String"/>
+                <uml:ownedReturn type="Cuadrado"/>
+            </uml:ownedOperation>
+            <uml:ownedOperation name="crearTriángulo" visibility="public">
+                <uml:ownedParameter name="coordenadaInicialX" type="uml:Integer"/>
+                <uml:ownedParameter name="coordenadaInicialY" type="uml:Integer"/>
+                <uml:ownedParameter name="coordenadaFinalX" type="uml:Integer"/>
+                <uml:ownedParameter name="coordenadaFinalY" type="uml:Integer"/>
+                <uml:ownedParameter name="colorBorde" type="uml:String"/>
+                <uml:ownedParameter name="colorRelleno" type="uml:String"/>
+                <uml:ownedReturn type="Triángulo"/>
+            </uml:ownedOperation>
+        </uml:Class>
+        
+        <!-- Clase HistorialDeAcciones -->
+        <uml:Class name="HistorialDeAcciones" xmi:type="uml:Class">
+            <uml:ownedAttribute name="acciones" visibility="private" type="uml:List"/>
+            <uml:ownedOperation name="agregarAccion" visibility="public">
+                <uml:ownedParameter name="accion" type="uml:String"/>
+            </uml:ownedOperation>
+            <uml:ownedOperation name="deshacerAccion" visibility="public"/>
+            <uml:ownedOperation name="rehacerAccion" visibility="public"/>
+        </uml:Class>
+        
+    </uml:Model>
+</XMI>
