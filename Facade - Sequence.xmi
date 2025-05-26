@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XMI xmi.version="2.1" xmlns:UML="org.omg.xmi.namespace.UML">
+  <UML:Model name="HandleUserInputSequence" xmi.id="model1">
+    <UML:Collaboration name="HandleUserInput" xmi.id="collab1">
+      <UML:ClassifierRole name="User" xmi.id="role1"/>
+      <UML:ClassifierRole name="AccountManager" xmi.id="role2"/>
+      <UML:ClassifierRole name="JButton" xmi.id="role3"/>
+      <UML:ClassifierRole name="ButtonHandler" xmi.id="role4"/>
+      <UML:ClassifierRole name="CustomerFacade" xmi.id="role5"/>
+      <UML:ClassifierRole name="Account" xmi.id="role6"/>
+      <UML:ClassifierRole name="Address" xmi.id="role7"/>
+      <UML:ClassifierRole name="CreditCard" xmi.id="role8"/>
+      <UML:ClassifierRole name="FileUtil" xmi.id="role9"/>
+      <UML:Message name="Click Validate & Save" xmi.id="msg1" sender="role1" receiver="role2"/>
+      <UML:Message name="actionPerformed()" xmi.id="msg2" sender="role2" receiver="role3"/>
+      <UML:Message name="actionPerformed(event)" xmi.id="msg3" sender="role3" receiver="role4"/>
+      <UML:Message name="getInputValues()" xmi.id="msg4" sender="role4" receiver="role2"/>
+      <UML:Message name="new CustomerFacade()" xmi.id="msg5" sender="role4" receiver="role5"/>
+      <UML:Message name="setValues()" xmi.id="msg6" sender="role4" receiver="role5"/>
+      <UML:Message name="saveCustomerData()" xmi.id="msg7" sender="role4" receiver="role5"/>
+      <UML:Message name="new Account()" xmi.id="msg8" sender="role5" receiver="role6"/>
+      <UML:Message name="isValid()" xmi.id="msg9" sender="role5" receiver="role6"/>
+      <UML:Message name="new Address()" xmi.id="msg10" sender="role5" receiver="role7"/>
+      <UML:Message name="isValid()" xmi.id="msg11" sender="role5" receiver="role7"/>
+      <UML:Message name="new CreditCard()" xmi.id="msg12" sender="role5" receiver="role8"/>
+      <UML:Message name="isValid()" xmi.id="msg13" sender="role5" receiver="role8"/>
+      <UML:Message name="save()" xmi.id="msg14" sender="role6" receiver="role9"/>
+      <UML:Message name="save()" xmi.id="msg15" sender="role7" receiver="role9"/>
+      <UML:Message name="save()" xmi.id="msg16" sender="role8" receiver="role9"/>
+      <UML:Message name="return result" xmi.id="msg17" sender="role5" receiver="role4"/>
+      <UML:Message name="setResultDisplay()" xmi.id="msg18" sender="role4" receiver="role2"/>
+    </UML:Collaboration>
+  </UML:Model>
+</XMI>

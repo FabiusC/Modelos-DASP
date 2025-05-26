@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML">
+  <uml:Model xmi:id="model" name="FacadePattern">
+    <!-- AccountManager Class -->
+    <packagedElement xmi:type="uml:Class" xmi:id="AccountManager" name="AccountManager">
+      <generalization xmi:id="AccountManager_JFrame" general="JFrame"/>
+      <ownedAttribute xmi:id="newline" name="newline" type="String" visibility="public" isStatic="true"/>
+      <ownedAttribute xmi:id="VALIDATE_SAVE" name="VALIDATE_SAVE" type="String" visibility="public" isStatic="true"/>
+      <ownedAttribute xmi:id="EXIT" name="EXIT" type="String" visibility="public" isStatic="true"/>
+      <ownedAttribute xmi:id="VISA" name="VISA" type="String" visibility="public" isStatic="true"/>
+      <ownedAttribute xmi:id="DISCOVER" name="DISCOVER" type="String" visibility="public" isStatic="true"/>
+      <ownedAttribute xmi:id="MASTER" name="MASTER" type="String" visibility="public" isStatic="true"/>
+      <ownedAttribute xmi:id="VALIDCARD" name="VALIDCARD" type="String" visibility="public" isStatic="true"/>
+      <ownedAttribute xmi:id="cmbCardType" name="cmbCardType" type="JComboBox" visibility="private"/>
+      <ownedAttribute xmi:id="txtFields" name="txtFirstName, txtLastName, txtAddress, txtCity, txtState, txtCardNumber, txtExpDate" type="JTextField" visibility="private"/>
+      <ownedAttribute xmi:id="lblFields" name="lblCardType, lblFirstName, lblLastName, lblAddress, lblCity, lblState, lblCardNumber, lblExpDate, lblResult, lblResultValue" type="JLabel" visibility="private"/>
+      <ownedOperation xmi:id="AccountManager_constructor" name="AccountManager" visibility="public"/>
+      <ownedOperation xmi:id="getFirstName" name="getFirstName" visibility="public">
+        <ownedParameter xmi:id="return" name="return" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="getLastName" name="getLastName" visibility="public">
+        <ownedParameter xmi:id="return" name="return" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="getAddress" name="getAddress" visibility="public">
+        <ownedParameter xmi:id="return" name="return" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="getCity" name="getCity" visibility="public">
+        <ownedParameter xmi:id="return" name="return" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="getAddrState" name="getAddrState" visibility="public">
+        <ownedParameter xmi:id="return" name="return" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="getCardNumber" name="getCardNumber" visibility="public">
+        <ownedParameter xmi:id="return" name="return" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="getExpDate" name="getExpDate" visibility="public">
+        <ownedParameter xmi:id="return" name="return" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="getCardType" name="getCardType" visibility="public">
+        <ownedParameter xmi:id="return" name="return" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="setResultDisplay" name="setResultDisplay" visibility="public">
+        <ownedParameter xmi:id="msg" name="msg" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="main" name="main" visibility="public" isStatic="true">
+        <ownedParameter xmi:id="args" name="args" type="String[]"/>
+      </ownedOperation>
+    </packagedElement>
+
+    <!-- ButtonHandler Class -->
+    <packagedElement xmi:type="uml:Class" xmi:id="ButtonHandler" name="ButtonHandler">
+      <interfaceRealization xmi:id="ButtonHandler_ActionListener" contract="ActionListener"/>
+      <ownedAttribute xmi:id="objAccountManager" name="objAccountManager" type="AccountManager" visibility="package"/>
+      <ownedOperation xmi:id="ButtonHandler_constructor1" name="ButtonHandler" visibility="public"/>
+      <ownedOperation xmi:id="ButtonHandler_constructor2" name="ButtonHandler" visibility="public">
+        <ownedParameter xmi:id="inobjAccountManager" name="inobjAccountManager" type="AccountManager"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="actionPerformed" name="actionPerformed" visibility="public">
+        <ownedParameter xmi:id="e" name="e" type="ActionEvent"/>
+      </ownedOperation>
+    </packagedElement>
+
+    <!-- CustomerFacade Class -->
+    <packagedElement xmi:type="uml:Class" xmi:id="CustomerFacade" name="CustomerFacade">
+      <ownedAttribute xmi:id="address" name="address" type="String" visibility="private"/>
+      <ownedAttribute xmi:id="city" name="city" type="String" visibility="private"/>
+      <ownedAttribute xmi:id="state" name="state" type="String" visibility="private"/>
+      <ownedAttribute xmi:id="cardType" name="cardType" type="String" visibility="private"/>
+      <ownedAttribute xmi:id="cardNumber" name="cardNumber" type="String" visibility="private"/>
+      <ownedAttribute xmi:id="cardExpDate" name="cardExpDate" type="String" visibility="private"/>
+      <ownedAttribute xmi:id="fname" name="fname" type="String" visibility="private"/>
+      <ownedAttribute xmi:id="lname" name="lname" type="String" visibility="private"/>
+      <ownedOperation xmi:id="setAddress" name="setAddress" visibility="public">
+        <ownedParameter xmi:id="inAddress" name="inAddress" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="setCity" name="setCity" visibility="public">
+        <ownedParameter xmi:id="inCity" name="inCity" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="setState" name="setState" visibility="public">
+        <ownedParameter xmi:id="inState" name="inState" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="setFName" name="setFName" visibility="public">
+        <ownedParameter xmi:id="inFName" name="inFName" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="setLName" name="setLName" visibility="public">
+        <ownedParameter xmi:id="inLName" name="inLName" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="setCardType" name="setCardType" visibility="public">
+        <ownedParameter xmi:id="inCardType" name="inCardType" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="setCardNumber" name="setCardNumber" visibility="public">
+        <ownedParameter xmi:id="inCardNumber" name="inCardNumber" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="setCardExpDate" name="setCardExpDate" visibility="public">
+        <ownedParameter xmi:id="inCardExpDate" name="inCardExpDate" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="saveCustomerData" name="saveCustomerData" visibility="public">
+        <ownedParameter xmi:id="return" name="return" type="boolean"/>
+      </ownedOperation>
+    </packagedElement>
+
+    <!-- Account Class -->
+    <packagedElement xmi:type="uml:Class" xmi:id="Account" name="Account">
+      <ownedAttribute xmi:id="firstName" name="firstName" type="String" visibility="package"/>
+      <ownedAttribute xmi:id="lastName" name="lastName" type="String" visibility="package"/>
+      <ownedAttribute xmi:id="ACCOUNT_DATA_FILE" name="ACCOUNT_DATA_FILE" type="String" visibility="package"/>
+      <ownedOperation xmi:id="Account_constructor" name="Account" visibility="public">
+        <ownedParameter xmi:id="fname" name="fname" type="String"/>
+        <ownedParameter xmi:id="lname" name="lname" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="isValid" name="isValid" visibility="public">
+        <ownedParameter xmi:id="return" name="return" type="boolean"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="save" name="save" visibility="public">
+        <ownedParameter xmi:id="return" name="return" type="boolean"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="getFirstName" name="getFirstName" visibility="public">
+        <ownedParameter xmi:id="return" name="return" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="getLastName" name="getLastName" visibility="public">
+        <ownedParameter xmi:id="return" name="return" type="String"/>
+      </ownedOperation>
+    </packagedElement>
+
+    <!-- Address Class -->
+    <packagedElement xmi:type="uml:Class" xmi:id="Address" name="Address">
+      <ownedAttribute xmi:id="address" name="address" type="String" visibility="package"/>
+      <ownedAttribute xmi:id="city" name="city" type="String" visibility="package"/>
+      <ownedAttribute xmi:id="state" name="state" type="String" visibility="package"/>
+      <ownedAttribute xmi:id="ADDRESS_DATA_FILE" name="ADDRESS_DATA_FILE" type="String" visibility="package"/>
+      <ownedOperation xmi:id="Address_constructor" name="Address" visibility="public">
+        <ownedParameter xmi:id="add" name="add" type="String"/>
+        <ownedParameter xmi:id="cty" name="cty" type="String"/>
+        <ownedParameter xmi:id="st" name="st" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="isValid" name="isValid" visibility="public">
+        <ownedParameter xmi:id="return" name="return" type="boolean"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="save" name="save" visibility="public">
+        <ownedParameter xmi:id="return" name="return" type="boolean"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="getAddress" name="getAddress" visibility="public">
+        <ownedParameter xmi:id="return" name="return" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="getCity" name="getCity" visibility="public">
+        <ownedParameter xmi:id="return" name="return" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="getState" name="getState" visibility="public">
+        <ownedParameter xmi:id="return" name="return" type="String"/>
+      </ownedOperation>
+    </packagedElement>
+
+    <!-- CreditCard Class -->
+    <packagedElement xmi:type="uml:Class" xmi:id="CreditCard" name="CreditCard">
+      <ownedAttribute xmi:id="cardType" name="cardType" type="String" visibility="package"/>
+      <ownedAttribute xmi:id="cardNumber" name="cardNumber" type="String" visibility="package"/>
+      <ownedAttribute xmi:id="cardExpDate" name="cardExpDate" type="String" visibility="package"/>
+      <ownedAttribute xmi:id="CC_DATA_FILE" name="CC_DATA_FILE" type="String" visibility="package"/>
+      <ownedOperation xmi:id="CreditCard_constructor" name="CreditCard" visibility="public">
+        <ownedParameter xmi:id="ccType" name="ccType" type="String"/>
+        <ownedParameter xmi:id="ccNumber" name="ccNumber" type="String"/>
+        <ownedParameter xmi:id="ccExpDate" name="ccExpDate" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="isValid" name="isValid" visibility="public">
+        <ownedParameter xmi:id="return" name="return" type="boolean"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="save" name="save" visibility="public">
+        <ownedParameter xmi:id="return" name="return" type="boolean"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="getCardType" name="getCardType" visibility="public">
+        <ownedParameter xmi:id="return" name="return" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="getCardNumber" name="getCardNumber" visibility="public">
+        <ownedParameter xmi:id="return" name="return" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="getCardExpDate" name="getCardExpDate" visibility="public">
+        <ownedParameter xmi:id="return" name="return" type="String"/>
+      </ownedOperation>
+    </packagedElement>
+
+    <!-- FileUtil Class -->
+    <packagedElement xmi:type="uml:Class" xmi:id="FileUtil" name="FileUtil">
+      <ownedAttribute xmi:id="dos" name="dos" type="DataOutputStream" visibility="package"/>
+      <ownedOperation xmi:id="writeToFile" name="writeToFile" visibility="public">
+        <ownedParameter xmi:id="fileName" name="fileName" type="String"/>
+        <ownedParameter xmi:id="dataLine" name="dataLine" type="String"/>
+        <ownedParameter xmi:id="isAppendMode" name="isAppendMode" type="boolean"/>
+        <ownedParameter xmi:id="isNewLine" name="isNewLine" type="boolean"/>
+        <ownedParameter xmi:id="return" name="return" type="boolean"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="readFromFile" name="readFromFile" visibility="public">
+        <ownedParameter xmi:id="fileName" name="fileName" type="String"/>
+        <ownedParameter xmi:id="return" name="return" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="isFileExists" name="isFileExists" visibility="public">
+        <ownedParameter xmi:id="fileName" name="fileName" type="String"/>
+        <ownedParameter xmi:id="return" name="return" type="boolean"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="deleteFile" name="deleteFile" visibility="public">
+        <ownedParameter xmi:id="fileName" name="fileName" type="String"/>
+        <ownedParameter xmi:id="return" name="return" type="boolean"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="fileToVector" name="fileToVector" visibility="public">
+        <ownedParameter xmi:id="fileName" name="fileName" type="String"/>
+        <ownedParameter xmi:id="return" name="return" type="Vector"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="vectorToFile" name="vectorToFile" visibility="public">
+        <ownedParameter xmi:id="v" name="v" type="Vector"/>
+        <ownedParameter xmi:id="fileName" name="fileName" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="copyUniqueElements" name="copyUniqueElements" visibility="public">
+        <ownedParameter xmi:id="sourceFile" name="sourceFile" type="String"/>
+        <ownedParameter xmi:id="resultFile" name="resultFile" type="String"/>
+      </ownedOperation>
+    </packagedElement>
+
+    <!-- MiscUtil Class -->
+    <packagedElement xmi:type="uml:Class" xmi:id="MiscUtil" name="MiscUtil">
+      <ownedOperation xmi:id="hasDuplicates" name="hasDuplicates" visibility="public" isStatic="true">
+        <ownedParameter xmi:id="v" name="v" type="Vector"/>
+        <ownedParameter xmi:id="return" name="return" type="boolean"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="removeDuplicates" name="removeDuplicates" visibility="public" isStatic="true">
+        <ownedParameter xmi:id="s" name="s" type="Vector"/>
+        <ownedParameter xmi:id="return" name="return" type="Vector"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="removeDuplicateDomains" name="removeDuplicateDomains" visibility="public" isStatic="true">
+        <ownedParameter xmi:id="s" name="s" type="Vector"/>
+        <ownedParameter xmi:id="return" name="return" type="Vector"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="areVectorsEqual" name="areVectorsEqual" visibility="public" isStatic="true">
+        <ownedParameter xmi:id="a" name="a" type="Vector"/>
+        <ownedParameter xmi:id="b" name="b" type="Vector"/>
+        <ownedParameter xmi:id="return" name="return" type="boolean"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="removeDuplicates2" name="removeDuplicates" visibility="public" isStatic="true">
+        <ownedParameter xmi:id="a" name="a" type="Vector"/>
+        <ownedParameter xmi:id="b" name="b" type="Vector"/>
+        <ownedParameter xmi:id="return" name="return" type="Vector"/>
+      </ownedOperation>
+    </packagedElement>
+
+    <!-- Relationships -->
+    <packagedElement xmi:type="uml:Association" xmi:id="CustomerFacade_Account" name="uses">
+      <memberEnd xmi:idref="CustomerFacade"/>
+      <memberEnd xmi:idref="Account"/>
+    </packagedElement>
+
+    <packagedElement xmi:type="uml:Association" xmi:id="CustomerFacade_Address" name="uses">
+      <memberEnd xmi:idref="CustomerFacade"/>
+      <memberEnd xmi:idref="Address"/>
+    </packagedElement>
+
+    <packagedElement xmi:type="uml:Association" xmi:id="CustomerFacade_CreditCard" name="uses">
+      <memberEnd xmi:idref="CustomerFacade"/>
+      <memberEnd xmi:idref="CreditCard"/>
+    </packagedElement>
+
+    <packagedElement xmi:type="uml:Association" xmi:id="Account_FileUtil" name="uses">
+      <memberEnd xmi:idref="Account"/>
+      <memberEnd xmi:idref="FileUtil"/>
+    </packagedElement>
+
+    <packagedElement xmi:type="uml:Association" xmi:id="Address_FileUtil" name="uses">
+      <memberEnd xmi:idref="Address"/>
+      <memberEnd xmi:idref="FileUtil"/>
+    </packagedElement>
+
+    <packagedElement xmi:type="uml:Association" xmi:id="CreditCard_FileUtil" name="uses">
+      <memberEnd xmi:idref="CreditCard"/>
+      <memberEnd xmi:idref="FileUtil"/>
+    </packagedElement>
+
+    <packagedElement xmi:type="uml:Association" xmi:id="AccountManager_CustomerFacade" name="uses">
+      <memberEnd xmi:idref="AccountManager"/>
+      <memberEnd xmi:idref="CustomerFacade"/>
+    </packagedElement>
+
+    <packagedElement xmi:type="uml:Association" xmi:id="ButtonHandler_AccountManager" name="uses">
+      <memberEnd xmi:idref="ButtonHandler"/>
+      <memberEnd xmi:idref="AccountManager"/>
+    </packagedElement>
+
+    <packagedElement xmi:type="uml:Association" xmi:id="FileUtil_MiscUtil" name="uses">
+      <memberEnd xmi:idref="FileUtil"/>
+      <memberEnd xmi:idref="MiscUtil"/>
+    </packagedElement>
+
+  </uml:Model>
+</xmi:XMI>

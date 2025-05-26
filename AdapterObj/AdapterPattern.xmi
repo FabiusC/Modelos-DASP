@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmlns:xmi="http://www.omg.org/XMI">
+  <uml:Model xmi:id="_1" name="AdapterPattern">
+    <packagedElement xmi:type="uml:Class" xmi:id="_2" name="AddressManager">
+      <ownedAttribute xmi:id="_3" name="newline" visibility="public" isStatic="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_4" name="VALIDATE" visibility="public" isStatic="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_5" name="EXIT" visibility="public" isStatic="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6" name="txtCustomerName" visibility="private">
+        <type xmi:type="uml:Class" href="pathmap://UML_LIBRARIES/JavaJDK.library.uml#JTextField"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_7" name="txtAddress" visibility="private">
+        <type xmi:type="uml:Class" href="pathmap://UML_LIBRARIES/JavaJDK.library.uml#JTextField"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_8" name="txtZip" visibility="private">
+        <type xmi:type="uml:Class" href="pathmap://UML_LIBRARIES/JavaJDK.library.uml#JTextField"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_9" name="txtState" visibility="private">
+        <type xmi:type="uml:Class" href="pathmap://UML_LIBRARIES/JavaJDK.library.uml#JTextField"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_10" name="cmbAddressType" visibility="private">
+        <type xmi:type="uml:Class" href="pathmap://UML_LIBRARIES/JavaJDK.library.uml#JComboBox"/>
+      </ownedAttribute>
+      <ownedOperation xmi:id="_11" name="AddressManager" visibility="public">
+        <ownedParameter xmi:id="_12" name="return" direction="return">
+          <type xmi:type="uml:Class" xmi:id="_13" name="AddressManager"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_14" name="getCustomerName" visibility="public">
+        <ownedParameter xmi:id="_15" name="return" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_16" name="getAddress" visibility="public">
+        <ownedParameter xmi:id="_17" name="return" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_18" name="getZip" visibility="public">
+        <ownedParameter xmi:id="_19" name="return" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_20" name="getAddrState" visibility="public">
+        <ownedParameter xmi:id="_21" name="return" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_22" name="getAddressType" visibility="public">
+        <ownedParameter xmi:id="_23" name="return" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_24" name="setResultValue" visibility="public">
+        <ownedParameter xmi:id="_25" name="str" direction="in">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+
+    <packagedElement xmi:type="uml:Class" xmi:id="_26" name="Customer">
+      <ownedAttribute xmi:id="_27" name="US" visibility="public" isStatic="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_28" name="CANADA" visibility="public" isStatic="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_29" name="address" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_30" name="name" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_31" name="zip" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_32" name="state" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_33" name="type" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedOperation xmi:id="_34" name="isValidCustomerAddress" visibility="public">
+        <ownedParameter xmi:id="_35" name="return" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_36" name="Customer" visibility="public">
+        <ownedParameter xmi:id="_37" name="inp_name" direction="in">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_38" name="inp_address" direction="in">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_39" name="inp_zip" direction="in">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_40" name="inp_state" direction="in">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_41" name="inp_type" direction="in">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+
+    <packagedElement xmi:type="uml:Class" xmi:id="_42" name="USAddress">
+      <ownedOperation xmi:id="_43" name="isValidAddress" visibility="public">
+        <ownedParameter xmi:id="_44" name="inp_address" direction="in">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_45" name="inp_zip" direction="in">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_46" name="inp_state" direction="in">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_47" name="return" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+
+    <packagedElement xmi:type="uml:Class" xmi:id="_48" name="CAAddress">
+      <ownedOperation xmi:id="_49" name="isValidCanadianAddr" visibility="public">
+        <ownedParameter xmi:id="_50" name="inp_address" direction="in">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_51" name="inp_pcode" direction="in">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_52" name="inp_prvnc" direction="in">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_53" name="return" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+
+    <packagedElement xmi:type="uml:Class" xmi:id="_54" name="CAAddressAdapter">
+      <ownedAttribute xmi:id="_55" name="objCAAddress" visibility="private">
+        <type xmi:type="uml:Class" xmi:id="_56" name="CAAddress"/>
+      </ownedAttribute>
+      <ownedOperation xmi:id="_57" name="CAAddressAdapter" visibility="public">
+        <ownedParameter xmi:id="_58" name="address" direction="in">
+          <type xmi:type="uml:Class" xmi:id="_59" name="CAAddress"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_60" name="isValidAddress" visibility="public">
+        <ownedParameter xmi:id="_61" name="inp_address" direction="in">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_62" name="inp_zip" direction="in">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_63" name="inp_state" direction="in">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_64" name="return" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+
+    <!-- Relationships -->
+    <packagedElement xmi:type="uml:Association" xmi:id="_65" name="uses">
+      <memberEnd xmi:idref="_66"/>
+      <memberEnd xmi:idref="_67"/>
+      <ownedEnd xmi:id="_66" name="customer" type="_26">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_68" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_69" value="1"/>
+      </ownedEnd>
+      <ownedEnd xmi:id="_67" name="addressValidator" type="_42">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_70" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_71" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+
+    <packagedElement xmi:type="uml:Association" xmi:id="_72" name="adapts">
+      <memberEnd xmi:idref="_73"/>
+      <memberEnd xmi:idref="_74"/>
+      <ownedEnd xmi:id="_73" name="adapter" type="_54">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_75" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_76" value="1"/>
+      </ownedEnd>
+      <ownedEnd xmi:id="_74" name="adaptee" type="_48">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_77" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_78" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+  </uml:Model>
+</xmi:XMI> 
