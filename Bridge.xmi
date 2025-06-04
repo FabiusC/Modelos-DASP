@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmlns:xmi="http://www.omg.org/XMI">
+  <uml:Model xmi:id="Model_1" name="BridgePattern">
+    <!-- Interfaces -->
+    <packagedElement xmi:type="uml:Interface" xmi:id="Message" name="Message">
+      <ownedOperation xmi:id="Message.log" name="log">
+        <ownedParameter xmi:id="Message.log.msg" name="msg" type="String"/>
+      </ownedOperation>
+    </packagedElement>
+    
+    <packagedElement xmi:type="uml:Interface" xmi:id="MessageLogger" name="MessageLogger">
+      <ownedOperation xmi:id="MessageLogger.logMsg" name="logMsg">
+        <ownedParameter xmi:id="MessageLogger.logMsg.msg" name="msg" type="String"/>
+      </ownedOperation>
+    </packagedElement>
+    
+    <!-- Message Implementations -->
+    <packagedElement xmi:type="uml:Class" xmi:id="TextMessage" name="TextMessage">
+      <ownedAttribute xmi:id="TextMessage.logger" name="logger" type="MessageLogger" visibility="private"/>
+      <ownedOperation xmi:id="TextMessage.constructor" name="TextMessage">
+        <ownedParameter xmi:id="TextMessage.constructor.l" name="l" type="MessageLogger"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="TextMessage.log" name="log" visibility="public">
+        <ownedParameter xmi:id="TextMessage.log.msg" name="msg" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="TextMessage.preProcess" name="preProcess" visibility="private">
+        <ownedParameter xmi:id="TextMessage.preProcess.msg" name="msg" type="String"/>
+        <ownedParameter xmi:id="TextMessage.preProcess.return" name="return" type="String"/>
+      </ownedOperation>
+      <interfaceRealization xmi:id="TextMessage_Message" contract="Message"/>
+    </packagedElement>
+    
+    <packagedElement xmi:type="uml:Class" xmi:id="EncryptedMessage" name="EncryptedMessage">
+      <ownedAttribute xmi:id="EncryptedMessage.logger" name="logger" type="MessageLogger" visibility="private"/>
+      <ownedOperation xmi:id="EncryptedMessage.constructor" name="EncryptedMessage">
+        <ownedParameter xmi:id="EncryptedMessage.constructor.l" name="l" type="MessageLogger"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="EncryptedMessage.log" name="log" visibility="public">
+        <ownedParameter xmi:id="EncryptedMessage.log.msg" name="msg" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="EncryptedMessage.preProcess" name="preProcess" visibility="private">
+        <ownedParameter xmi:id="EncryptedMessage.preProcess.msg" name="msg" type="String"/>
+        <ownedParameter xmi:id="EncryptedMessage.preProcess.return" name="return" type="String"/>
+      </ownedOperation>
+      <interfaceRealization xmi:id="EncryptedMessage_Message" contract="Message"/>
+    </packagedElement>
+    
+    <!-- Logger Implementations -->
+    <packagedElement xmi:type="uml:Class" xmi:id="FileLogger" name="FileLogger">
+      <ownedOperation xmi:id="FileLogger.logMsg" name="logMsg" visibility="public">
+        <ownedParameter xmi:id="FileLogger.logMsg.msg" name="msg" type="String"/>
+      </ownedOperation>
+      <interfaceRealization xmi:id="FileLogger_MessageLogger" contract="MessageLogger"/>
+    </packagedElement>
+    
+    <packagedElement xmi:type="uml:Class" xmi:id="ConsoleLogger" name="ConsoleLogger">
+      <ownedOperation xmi:id="ConsoleLogger.logMsg" name="logMsg" visibility="public">
+        <ownedParameter xmi:id="ConsoleLogger.logMsg.msg" name="msg" type="String"/>
+      </ownedOperation>
+      <interfaceRealization xmi:id="ConsoleLogger_MessageLogger" contract="MessageLogger"/>
+    </packagedElement>
+    
+    <!-- Utility Classes -->
+    <packagedElement xmi:type="uml:Class" xmi:id="FileUtil" name="FileUtil">
+      <ownedOperation xmi:id="FileUtil.writeToFile" name="writeToFile" visibility="public">
+        <ownedParameter xmi:id="FileUtil.writeToFile.fileName" name="fileName" type="String"/>
+        <ownedParameter xmi:id="FileUtil.writeToFile.msg" name="msg" type="String"/>
+        <ownedParameter xmi:id="FileUtil.writeToFile.append" name="append" type="Boolean"/>
+        <ownedParameter xmi:id="FileUtil.writeToFile.newLine" name="newLine" type="Boolean"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="FileUtil.readFromFile" name="readFromFile" visibility="public">
+        <ownedParameter xmi:id="FileUtil.readFromFile.fileName" name="fileName" type="String"/>
+        <ownedParameter xmi:id="FileUtil.readFromFile.return" name="return" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="FileUtil.deleteFile" name="deleteFile" visibility="public">
+        <ownedParameter xmi:id="FileUtil.deleteFile.fileName" name="fileName" type="String"/>
+        <ownedParameter xmi:id="FileUtil.deleteFile.return" name="return" type="Boolean"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="FileUtil.fileExists" name="fileExists" visibility="public">
+        <ownedParameter xmi:id="FileUtil.fileExists.fileName" name="fileName" type="String"/>
+        <ownedParameter xmi:id="FileUtil.fileExists.return" name="return" type="Boolean"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="FileUtil.getFileSize" name="getFileSize" visibility="public">
+        <ownedParameter xmi:id="FileUtil.getFileSize.fileName" name="fileName" type="String"/>
+        <ownedParameter xmi:id="FileUtil.getFileSize.return" name="return" type="Long"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="FileUtil.listFiles" name="listFiles" visibility="public">
+        <ownedParameter xmi:id="FileUtil.listFiles.directory" name="directory" type="String"/>
+        <ownedParameter xmi:id="FileUtil.listFiles.return" name="return" type="List&lt;String&gt;"/>
+      </ownedOperation>
+    </packagedElement>
+    
+    <packagedElement xmi:type="uml:Class" xmi:id="MiscUtil" name="MiscUtil">
+      <ownedOperation xmi:id="MiscUtil.getCurrentDateTime" name="getCurrentDateTime" visibility="public">
+        <ownedParameter xmi:id="MiscUtil.getCurrentDateTime.return" name="return" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="MiscUtil.formatString" name="formatString" visibility="public">
+        <ownedParameter xmi:id="MiscUtil.formatString.input" name="input" type="String"/>
+        <ownedParameter xmi:id="MiscUtil.formatString.maxLength" name="maxLength" type="Integer"/>
+        <ownedParameter xmi:id="MiscUtil.formatString.return" name="return" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="MiscUtil.isValidEmail" name="isValidEmail" visibility="public">
+        <ownedParameter xmi:id="MiscUtil.isValidEmail.email" name="email" type="String"/>
+        <ownedParameter xmi:id="MiscUtil.isValidEmail.return" name="return" type="Boolean"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="MiscUtil.generateRandomString" name="generateRandomString" visibility="public">
+        <ownedParameter xmi:id="MiscUtil.generateRandomString.length" name="length" type="Integer"/>
+        <ownedParameter xmi:id="MiscUtil.generateRandomString.return" name="return" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="MiscUtil.capitalizeFirstLetter" name="capitalizeFirstLetter" visibility="public">
+        <ownedParameter xmi:id="MiscUtil.capitalizeFirstLetter.input" name="input" type="String"/>
+        <ownedParameter xmi:id="MiscUtil.capitalizeFirstLetter.return" name="return" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="MiscUtil.removeSpecialCharacters" name="removeSpecialCharacters" visibility="public">
+        <ownedParameter xmi:id="MiscUtil.removeSpecialCharacters.input" name="input" type="String"/>
+        <ownedParameter xmi:id="MiscUtil.removeSpecialCharacters.return" name="return" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="MiscUtil.isNumeric" name="isNumeric" visibility="public">
+        <ownedParameter xmi:id="MiscUtil.isNumeric.str" name="str" type="String"/>
+        <ownedParameter xmi:id="MiscUtil.isNumeric.return" name="return" type="Boolean"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="MiscUtil.reverseString" name="reverseString" visibility="public">
+        <ownedParameter xmi:id="MiscUtil.reverseString.input" name="input" type="String"/>
+        <ownedParameter xmi:id="MiscUtil.reverseString.return" name="return" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="MiscUtil.countWords" name="countWords" visibility="public">
+        <ownedParameter xmi:id="MiscUtil.countWords.input" name="input" type="String"/>
+        <ownedParameter xmi:id="MiscUtil.countWords.return" name="return" type="Integer"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="MiscUtil.truncateString" name="truncateString" visibility="public">
+        <ownedParameter xmi:id="MiscUtil.truncateString.input" name="input" type="String"/>
+        <ownedParameter xmi:id="MiscUtil.truncateString.maxLength" name="maxLength" type="Integer"/>
+        <ownedParameter xmi:id="MiscUtil.truncateString.return" name="return" type="String"/>
+      </ownedOperation>
+    </packagedElement>
+    
+    <!-- Client Class -->
+    <packagedElement xmi:type="uml:Class" xmi:id="Client" name="Client">
+      <ownedOperation xmi:id="Client.main" name="main" visibility="public" isStatic="true">
+        <ownedParameter xmi:id="Client.main.args" name="args" type="String[]"/>
+      </ownedOperation>
+    </packagedElement>
+  </uml:Model>
+</xmi:XMI>

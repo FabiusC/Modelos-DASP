@@ -1,0 +1,14 @@
+Step,From,To,Message,Type
+1,User,Client,main(),Call
+2,Client,FileLogger,<<create>>,Create
+3,Client,ConsoleLogger,<<create>>,Create
+4,Client,EncryptedMessage,<<create>>(FileLogger),Create
+"5,Client,EncryptedMessage,log(""Testing encrypted message""),Call"
+"6,EncryptedMessage,EncryptedMessage,preProcess(""Testing encrypted message""),Call"
+7,EncryptedMessage,FileLogger,logMsg(encryptedMsg),Call
+8,FileLogger,FileUtil,<<create>>,Create
+"9,FileLogger,FileUtil,writeToFile(""log.txt"", encryptedMsg, true, true),Call"
+10,Client,TextMessage,<<create>>(ConsoleLogger),Create
+"11,Client,TextMessage,log(""Testing text message""),Call"
+"12,TextMessage,TextMessage,preProcess(""Testing text message""),Call"
+"13,TextMessage,ConsoleLogger,logMsg(""Testing text message""),Call"
