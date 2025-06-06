@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <uml:Model xmi:id="model" name="IDEOperations">
+    <!-- Main Sequence Diagram -->
+    <packagedElement xmi:type="uml:Interaction" xmi:id="MainSequence" name="Manage Java Project">
+      <lifeline xmi:id="Developer" name="Developer" represents="Developer"/>
+      <lifeline xmi:id="Client" name="Client" represents="Client"/>
+      <lifeline xmi:id="ProxyProcessor" name="ProxyProcessor" represents="ProxyProcessor"/>
+      <lifeline xmi:id="RealProcessor" name="RealProcessor" represents="RealProcessor"/>
+      <lifeline xmi:id="JavaDoc" name="JavaDoc" represents="JavaDoc"/>
+      
+      <message xmi:id="msg1" name="createIDE" sendEvent="create1" receiveEvent="create2">
+        <sendEvent xmi:id="create1" event="MessageOccurrenceSpecification"/>
+        <receiveEvent xmi:id="create2" event="MessageOccurrenceSpecification"/>
+      </message>
+
+      <message xmi:id="msg2" name="generateDocs" sendEvent="send1" receiveEvent="recv1">
+        <sendEvent xmi:id="send1" event="MessageOccurrenceSpecification"/>
+        <receiveEvent xmi:id="recv1" event="MessageOccurrenceSpecification"/>
+      </message>
+
+      <message xmi:id="msg3" name="viewTests" sendEvent="send2" receiveEvent="recv2">
+        <sendEvent xmi:id="send2" event="MessageOccurrenceSpecification"/>
+        <receiveEvent xmi:id="recv2" event="MessageOccurrenceSpecification"/>
+      </message>
+
+      <interactionFragment xmi:id="frag1" name="Generate Documentation">
+        <gate xmi:id="gate1" name="in"/>
+        <gate xmi:id="gate2" name="out"/>
+      </interactionFragment>
+
+      <interactionFragment xmi:id="frag2" name="View Tests">
+        <gate xmi:id="gate3" name="in"/>
+        <gate xmi:id="gate4" name="out"/>
+      </interactionFragment>
+    </packagedElement>
+
+    <!-- Generate Documentation Sequence Diagram -->
+    <packagedElement xmi:type="uml:Interaction" xmi:id="GenerateDocsSequence" name="Generate Documentation">
+      <lifeline xmi:id="ProxyProcessor2" name="ProxyProcessor" represents="ProxyProcessor"/>
+      <lifeline xmi:id="RealProcessor2" name="RealProcessor" represents="RealProcessor"/>
+      <lifeline xmi:id="JavaDoc2" name="JavaDoc" represents="JavaDoc"/>
+      
+      <message xmi:id="msg4" name="generateDocs" sendEvent="send3" receiveEvent="recv3">
+        <sendEvent xmi:id="send3" event="MessageOccurrenceSpecification"/>
+        <receiveEvent xmi:id="recv3" event="MessageOccurrenceSpecification"/>
+      </message>
+
+      <interactionFragment xmi:id="frag3" name="[realProcessor == null]">
+        <message xmi:id="msg5" name="new RealProcessor()" sendEvent="send4" receiveEvent="recv4">
+          <sendEvent xmi:id="send4" event="MessageOccurrenceSpecification"/>
+          <receiveEvent xmi:id="recv4" event="MessageOccurrenceSpecification"/>
+        </message>
+      </interactionFragment>
+
+      <message xmi:id="msg6" name="generateDocs" sendEvent="send5" receiveEvent="recv5">
+        <sendEvent xmi:id="send5" event="MessageOccurrenceSpecification"/>
+        <receiveEvent xmi:id="recv5" event="MessageOccurrenceSpecification"/>
+      </message>
+
+      <message xmi:id="msg7" name="generateDocs" sendEvent="send6" receiveEvent="recv6">
+        <sendEvent xmi:id="send6" event="MessageOccurrenceSpecification"/>
+        <receiveEvent xmi:id="recv6" event="MessageOccurrenceSpecification"/>
+      </message>
+    </packagedElement>
+
+    <!-- View Tests Sequence Diagram -->
+    <packagedElement xmi:type="uml:Interaction" xmi:id="ViewTestsSequence" name="View Tests">
+      <lifeline xmi:id="Client2" name="Client" represents="Client"/>
+      <lifeline xmi:id="ProxyProcessor3" name="ProxyProcessor" represents="ProxyProcessor"/>
+      
+      <message xmi:id="msg8" name="viewTests" sendEvent="send7" receiveEvent="recv7">
+        <sendEvent xmi:id="send7" event="MessageOccurrenceSpecification"/>
+        <receiveEvent xmi:id="recv7" event="MessageOccurrenceSpecification"/>
+      </message>
+
+      <message xmi:id="msg9" name="getTestResults" sendEvent="send8" receiveEvent="recv8">
+        <sendEvent xmi:id="send8" event="MessageOccurrenceSpecification"/>
+        <receiveEvent xmi:id="recv8" event="MessageOccurrenceSpecification"/>
+      </message>
+    </packagedElement>
+
+    <!-- View Documentation Status Sequence Diagram -->
+    <packagedElement xmi:type="uml:Interaction" xmi:id="ViewDocStatusSequence" name="View Documentation Status">
+      <lifeline xmi:id="JavaDoc3" name="JavaDoc" represents="JavaDoc"/>
+      <lifeline xmi:id="Client3" name="Client" represents="Client"/>
+      
+      <message xmi:id="msg10" name="getDocStatus" sendEvent="send9" receiveEvent="recv9">
+        <sendEvent xmi:id="send9" event="MessageOccurrenceSpecification"/>
+        <receiveEvent xmi:id="recv9" event="MessageOccurrenceSpecification"/>
+      </message>
+
+      <message xmi:id="msg11" name="returnStatus" sendEvent="send10" receiveEvent="recv10">
+        <sendEvent xmi:id="send10" event="MessageOccurrenceSpecification"/>
+        <receiveEvent xmi:id="recv10" event="MessageOccurrenceSpecification"/>
+      </message>
+    </packagedElement>
+
+    <!-- View Test Results Sequence Diagram -->
+    <packagedElement xmi:type="uml:Interaction" xmi:id="ViewTestResultsSequence" name="View Test Results">
+      <lifeline xmi:id="Client4" name="Client" represents="Client"/>
+      <lifeline xmi:id="ProxyProcessor4" name="ProxyProcessor" represents="ProxyProcessor"/>
+      
+      <message xmi:id="msg12" name="getTestResults" sendEvent="send11" receiveEvent="recv11">
+        <sendEvent xmi:id="send11" event="MessageOccurrenceSpecification"/>
+        <receiveEvent xmi:id="recv11" event="MessageOccurrenceSpecification"/>
+      </message>
+
+      <message xmi:id="msg13" name="returnResults" sendEvent="send12" receiveEvent="recv12">
+        <sendEvent xmi:id="send12" event="MessageOccurrenceSpecification"/>
+        <receiveEvent xmi:id="recv12" event="MessageOccurrenceSpecification"/>
+      </message>
+    </packagedElement>
+  </uml:Model>
+</xmi:XMI> 

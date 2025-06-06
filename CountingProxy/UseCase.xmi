@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmlns:xmi="http://www.omg.org/XMI">
+  <uml:Model xmi:id="model" name="CountingProxy">
+    <packagedElement xmi:type="uml:UseCase" xmi:id="GetOrders" name="Get Orders">
+      <ownedAttribute xmi:id="GetOrders_actor" name="System" type="Actor"/>
+    </packagedElement>
+    
+    <packagedElement xmi:type="uml:UseCase" xmi:id="CountOrderAccesses" name="Count Order Accesses">
+      <ownedAttribute xmi:id="CountOrderAccesses_actor" name="System" type="Actor"/>
+    </packagedElement>
+    
+    <packagedElement xmi:type="uml:UseCase" xmi:id="LogAccessInformation" name="Log Access Information">
+      <ownedAttribute xmi:id="LogAccessInformation_actor" name="System" type="Actor"/>
+    </packagedElement>
+    
+    <packagedElement xmi:type="uml:UseCase" xmi:id="ReadOrdersFromFile" name="Read Orders from File">
+      <ownedAttribute xmi:id="ReadOrdersFromFile_actor" name="System" type="Actor"/>
+    </packagedElement>
+    
+    <packagedElement xmi:type="uml:UseCase" xmi:id="WriteLogToFile" name="Write Log to File">
+      <ownedAttribute xmi:id="WriteLogToFile_actor" name="System" type="Actor"/>
+    </packagedElement>
+    
+    <!-- Relationships -->
+    <packagedElement xmi:type="uml:Include" xmi:id="GetOrders_include_ReadOrdersFromFile" name="include">
+      <source xmi:idref="GetOrders"/>
+      <target xmi:idref="ReadOrdersFromFile"/>
+    </packagedElement>
+    
+    <packagedElement xmi:type="uml:Extend" xmi:id="GetOrders_extend_CountOrderAccesses" name="extend">
+      <source xmi:idref="CountOrderAccesses"/>
+      <target xmi:idref="GetOrders"/>
+    </packagedElement>
+    
+    <packagedElement xmi:type="uml:Extend" xmi:id="CountOrderAccesses_extend_LogAccessInformation" name="extend">
+      <source xmi:idref="LogAccessInformation"/>
+      <target xmi:idref="CountOrderAccesses"/>
+    </packagedElement>
+    
+    <packagedElement xmi:type="uml:Include" xmi:id="LogAccessInformation_include_WriteLogToFile" name="include">
+      <source xmi:idref="LogAccessInformation"/>
+      <target xmi:idref="WriteLogToFile"/>
+    </packagedElement>
+  </uml:Model>
+</xmi:XMI>

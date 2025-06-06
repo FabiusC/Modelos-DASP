@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmlns:xmi="http://www.omg.org/XMI">
+  <uml:Model xmi:id="model" name="CountingProxy">
+    <packagedElement xmi:type="uml:Interface" xmi:id="OrderIF" name="OrderIF">
+      <ownedOperation xmi:id="OrderIF_getAllOrders" name="getAllOrders" visibility="public">
+        <ownedParameter xmi:id="OrderIF_getAllOrders_return" name="return" type="Vector"/>
+      </ownedOperation>
+    </packagedElement>
+    
+    <packagedElement xmi:type="uml:Class" xmi:id="Order" name="Order">
+      <interfaceRealization xmi:id="Order_OrderIF_realization" contract="OrderIF"/>
+      <ownedOperation xmi:id="Order_getAllOrders" name="getAllOrders" visibility="public">
+        <ownedParameter xmi:id="Order_getAllOrders_return" name="return" type="Vector"/>
+      </ownedOperation>
+    </packagedElement>
+    
+    <packagedElement xmi:type="uml:Class" xmi:id="OrderProxy" name="OrderProxy">
+      <ownedAttribute xmi:id="OrderProxy_counter" name="counter" visibility="private" type="int"/>
+      <interfaceRealization xmi:id="OrderProxy_OrderIF_realization" contract="OrderIF"/>
+      <ownedOperation xmi:id="OrderProxy_getAllOrders" name="getAllOrders" visibility="public">
+        <ownedParameter xmi:id="OrderProxy_getAllOrders_return" name="return" type="Vector"/>
+      </ownedOperation>
+    </packagedElement>
+    
+    <packagedElement xmi:type="uml:Class" xmi:id="FileUtil" name="FileUtil">
+      <ownedAttribute xmi:id="FileUtil_dos" name="dos" visibility="private" type="DataOutputStream"/>
+      <ownedOperation xmi:id="FileUtil_writeToFile" name="writeToFile" visibility="public">
+        <ownedParameter xmi:id="FileUtil_writeToFile_fileName" name="fileName" type="String"/>
+        <ownedParameter xmi:id="FileUtil_writeToFile_dataLine" name="dataLine" type="String"/>
+        <ownedParameter xmi:id="FileUtil_writeToFile_isAppendMode" name="isAppendMode" type="boolean"/>
+        <ownedParameter xmi:id="FileUtil_writeToFile_isNewLine" name="isNewLine" type="boolean"/>
+        <ownedParameter xmi:id="FileUtil_writeToFile_return" name="return" type="boolean"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="FileUtil_readFromFile" name="readFromFile" visibility="public">
+        <ownedParameter xmi:id="FileUtil_readFromFile_fileName" name="fileName" type="String"/>
+        <ownedParameter xmi:id="FileUtil_readFromFile_return" name="return" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="FileUtil_isFileExists" name="isFileExists" visibility="public">
+        <ownedParameter xmi:id="FileUtil_isFileExists_fileName" name="fileName" type="String"/>
+        <ownedParameter xmi:id="FileUtil_isFileExists_return" name="return" type="boolean"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="FileUtil_deleteFile" name="deleteFile" visibility="public">
+        <ownedParameter xmi:id="FileUtil_deleteFile_fileName" name="fileName" type="String"/>
+        <ownedParameter xmi:id="FileUtil_deleteFile_return" name="return" type="boolean"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="FileUtil_fileToVector" name="fileToVector" visibility="public">
+        <ownedParameter xmi:id="FileUtil_fileToVector_fileName" name="fileName" type="String"/>
+        <ownedParameter xmi:id="FileUtil_fileToVector_return" name="return" type="Vector"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="FileUtil_vectorToFile" name="vectorToFile" visibility="public">
+        <ownedParameter xmi:id="FileUtil_vectorToFile_v" name="v" type="Vector"/>
+        <ownedParameter xmi:id="FileUtil_vectorToFile_fileName" name="fileName" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="FileUtil_copyUniqueElements" name="copyUniqueElements" visibility="public">
+        <ownedParameter xmi:id="FileUtil_copyUniqueElements_sourceFile" name="sourceFile" type="String"/>
+        <ownedParameter xmi:id="FileUtil_copyUniqueElements_resultFile" name="resultFile" type="String"/>
+      </ownedOperation>
+    </packagedElement>
+    
+    <packagedElement xmi:type="uml:Class" xmi:id="MiscUtil" name="MiscUtil">
+      <ownedOperation xmi:id="MiscUtil_hasDuplicates" name="hasDuplicates" visibility="public" isStatic="true">
+        <ownedParameter xmi:id="MiscUtil_hasDuplicates_v" name="v" type="Vector"/>
+        <ownedParameter xmi:id="MiscUtil_hasDuplicates_return" name="return" type="boolean"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="MiscUtil_removeDuplicates" name="removeDuplicates" visibility="public" isStatic="true">
+        <ownedParameter xmi:id="MiscUtil_removeDuplicates_s" name="s" type="Vector"/>
+        <ownedParameter xmi:id="MiscUtil_removeDuplicates_return" name="return" type="Vector"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="MiscUtil_removeDuplicateDomains" name="removeDuplicateDomains" visibility="public" isStatic="true">
+        <ownedParameter xmi:id="MiscUtil_removeDuplicateDomains_s" name="s" type="Vector"/>
+        <ownedParameter xmi:id="MiscUtil_removeDuplicateDomains_return" name="return" type="Vector"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="MiscUtil_areVectorsEqual" name="areVectorsEqual" visibility="public" isStatic="true">
+        <ownedParameter xmi:id="MiscUtil_areVectorsEqual_a" name="a" type="Vector"/>
+        <ownedParameter xmi:id="MiscUtil_areVectorsEqual_b" name="b" type="Vector"/>
+        <ownedParameter xmi:id="MiscUtil_areVectorsEqual_return" name="return" type="boolean"/>
+      </ownedOperation>
+    </packagedElement>
+    
+    <packagedElement xmi:type="uml:Class" xmi:id="MainApp" name="MainApp">
+      <ownedOperation xmi:id="MainApp_main" name="main" visibility="public" isStatic="true">
+        <ownedParameter xmi:id="MainApp_main_args" name="args" type="String[]"/>
+      </ownedOperation>
+    </packagedElement>
+  </uml:Model>
+</xmi:XMI>

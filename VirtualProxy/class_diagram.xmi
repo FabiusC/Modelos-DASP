@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <uml:Model xmi:id="model" name="VirtualProxy">
+    <packagedElement xmi:type="uml:Class" xmi:id="IDEOperation" name="IDEOperation" isAbstract="true">
+      <ownedAttribute xmi:id="cmp" name="cmp" type="Compiler" visibility="private"/>
+      <ownedAttribute xmi:id="rtime" name="rtime" type="Runtime" visibility="private"/>
+      <ownedOperation xmi:id="compile" name="compile">
+        <ownedParameter xmi:id="javaFile" name="javaFile" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="run" name="run">
+        <ownedParameter xmi:id="classFile" name="classFile" type="String"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="generateDocs" name="generateDocs" isAbstract="true">
+        <ownedParameter xmi:id="javaFile2" name="javaFile" type="String"/>
+      </ownedOperation>
+    </packagedElement>
+
+    <packagedElement xmi:type="uml:Class" xmi:id="ProxyProcessor" name="ProxyProcessor">
+      <generalization xmi:id="gen1" general="IDEOperation"/>
+      <ownedAttribute xmi:id="realProcessor" name="realProcessor" type="RealProcessor" visibility="private"/>
+      <ownedOperation xmi:id="generateDocsProxy" name="generateDocs">
+        <ownedParameter xmi:id="javaFile3" name="javaFile" type="String"/>
+      </ownedOperation>
+    </packagedElement>
+
+    <packagedElement xmi:type="uml:Class" xmi:id="RealProcessor" name="RealProcessor">
+      <generalization xmi:id="gen2" general="IDEOperation"/>
+      <ownedAttribute xmi:id="jdoc" name="jdoc" type="JavaDoc" visibility="public"/>
+      <ownedOperation xmi:id="generateDocsReal" name="generateDocs">
+        <ownedParameter xmi:id="javaFile4" name="javaFile" type="String"/>
+      </ownedOperation>
+    </packagedElement>
+
+    <packagedElement xmi:type="uml:Class" xmi:id="Compiler" name="Compiler">
+      <ownedOperation xmi:id="compileCompiler" name="compile">
+        <ownedParameter xmi:id="fileName" name="fileName" type="String"/>
+      </ownedOperation>
+    </packagedElement>
+
+    <packagedElement xmi:type="uml:Class" xmi:id="Runtime" name="Runtime">
+      <ownedOperation xmi:id="runRuntime" name="run">
+        <ownedParameter xmi:id="fileName2" name="fileName" type="String"/>
+      </ownedOperation>
+    </packagedElement>
+
+    <packagedElement xmi:type="uml:Class" xmi:id="JavaDoc" name="JavaDoc">
+      <ownedOperation xmi:id="generateDocsJavaDoc" name="generateDocs">
+        <ownedParameter xmi:id="fileName3" name="fileName" type="String"/>
+      </ownedOperation>
+    </packagedElement>
+
+    <packagedElement xmi:type="uml:Class" xmi:id="Client" name="Client">
+      <ownedOperation xmi:id="main" name="main" isStatic="true">
+        <ownedParameter xmi:id="args" name="args" type="String[]"/>
+      </ownedOperation>
+    </packagedElement>
+  </uml:Model>
+</xmi:XMI> 

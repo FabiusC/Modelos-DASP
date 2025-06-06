@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <uml:Model xmi:id="model" name="IDEOperations">
+    <packagedElement xmi:type="uml:UseCase" xmi:id="ManageJavaProject" name="Manage Java Project">
+      <ownedAttribute xmi:id="actor1" name="Developer" type="Actor"/>
+    </packagedElement>
+
+    <packagedElement xmi:type="uml:UseCase" xmi:id="GenerateDocumentation" name="Generate Documentation">
+      <include xmi:id="include1" includingCase="ManageJavaProject" addition="GenerateDocumentation"/>
+    </packagedElement>
+
+    <packagedElement xmi:type="uml:UseCase" xmi:id="ViewTests" name="View Tests">
+      <include xmi:id="include2" includingCase="ManageJavaProject" addition="ViewTests"/>
+    </packagedElement>
+
+    <packagedElement xmi:type="uml:UseCase" xmi:id="ViewDocumentationStatus" name="View Documentation Status">
+      <extend xmi:id="extend1" extendedCase="GenerateDocumentation" extension="ViewDocumentationStatus"/>
+    </packagedElement>
+
+    <packagedElement xmi:type="uml:UseCase" xmi:id="ViewTestResults" name="View Test Results">
+      <extend xmi:id="extend2" extendedCase="ViewTests" extension="ViewTestResults"/>
+    </packagedElement>
+
+    <packagedElement xmi:type="uml:Actor" xmi:id="Developer" name="Developer">
+      <ownedAttribute xmi:id="actor2" name="Developer" type="Actor"/>
+    </packagedElement>
+  </uml:Model>
+</xmi:XMI> 
