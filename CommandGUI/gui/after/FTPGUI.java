@@ -1,9 +1,7 @@
-import java.io.*;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.event.*;
-import java.util.*;
+import javax.swing.ListSelectionModel;
 
 public class FTPGUI extends JFrame {
   public static final String newline = "\n";
@@ -13,9 +11,9 @@ public class FTPGUI extends JFrame {
   public static final String EXIT = "Exit";
 
   private JPanel pnlFTPUI;
-  private JList localList;
-  private JList remoteList;
-  private DefaultListModel defLocalList, defRemoteList;
+  private JList<String> localList;
+  private JList<String> remoteList;
+  private DefaultListModel<String> defLocalList, defRemoteList;
   private UploadButton btnUpload;
   private DownloadButton btnDownload;
   private DeleteButton btnDelete;
@@ -24,10 +22,10 @@ public class FTPGUI extends JFrame {
     super("Command Pattern - Example");
 
     // Create controls
-    defLocalList = new DefaultListModel();
-    defRemoteList = new DefaultListModel();
-    localList = new JList(defLocalList);
-    remoteList = new JList(defRemoteList);
+    defLocalList = new DefaultListModel<>();
+    defRemoteList = new DefaultListModel<>();
+    localList = new JList<>(defLocalList);
+    remoteList = new JList<>(defRemoteList);
     pnlFTPUI = new JPanel();
 
     localList.setSelectionMode(
@@ -140,10 +138,17 @@ public class FTPGUI extends JFrame {
 
     initialize();
     try {
+      // Try to set the system look and feel
       UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
       SwingUtilities.updateComponentTreeUI(FTPGUI.this);
     } catch (Exception ex) {
-      System.out.println(ex);
+      // If system look and feel fails, fall back to default
+      try {
+        UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
+        SwingUtilities.updateComponentTreeUI(FTPGUI.this);
+      } catch (Exception ex2) {
+        System.out.println("Could not set look and feel: " + ex2.getMessage());
+      }
     }
 
   }
@@ -195,12 +200,14 @@ public class FTPGUI extends JFrame {
 
     public void processEvent() {
       int index = localList.getSelectedIndex();
-      String selectedItem = localList.getSelectedValue().toString();
-      ((DefaultListModel) localList.getModel()).remove(
-          index);
+      if (index >= 0 && localList.getSelectedValue() != null) {
+        String selectedItem = localList.getSelectedValue().toString();
+        ((DefaultListModel<String>) localList.getModel()).remove(
+            index);
 
-      ((DefaultListModel) remoteList.getModel()).addElement(
-          selectedItem);
+        ((DefaultListModel<String>) remoteList.getModel()).addElement(
+            selectedItem);
+      }
     }
 
     public UploadButton(String name) {
@@ -212,12 +219,14 @@ public class FTPGUI extends JFrame {
       implements CommandInterface {
     public void processEvent() {
       int index = remoteList.getSelectedIndex();
-      String selectedItem = remoteList.getSelectedValue().toString();
-      ((DefaultListModel) remoteList.getModel()).remove(
-          index);
+      if (index >= 0 && remoteList.getSelectedValue() != null) {
+        String selectedItem = remoteList.getSelectedValue().toString();
+        ((DefaultListModel<String>) remoteList.getModel()).remove(
+            index);
 
-      ((DefaultListModel) localList.getModel()).addElement(
-          selectedItem);
+        ((DefaultListModel<String>) localList.getModel()).addElement(
+            selectedItem);
+      }
     }
 
     public DownloadButton(String name) {
@@ -231,13 +240,13 @@ public class FTPGUI extends JFrame {
     public void processEvent() {
       int index = localList.getSelectedIndex();
       if (index >= 0) {
-        ((DefaultListModel) localList.getModel()).remove(
+        ((DefaultListModel<String>) localList.getModel()).remove(
             index);
       }
 
       index = remoteList.getSelectedIndex();
       if (index >= 0) {
-        ((DefaultListModel) remoteList.getModel()).remove(
+        ((DefaultListModel<String>) remoteList.getModel()).remove(
             index);
       }
     }
